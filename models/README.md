@@ -2,7 +2,7 @@
  DJANGO PROJE AYAĞA KALDIRMA KOMUTLARI 
 
  1  python -m venv env
- 2  source env/bin/activate
+ 2  .\env\Scripts\activate
  3  pip install django
  4  python -m pip install --upgrade pip
  5  history
