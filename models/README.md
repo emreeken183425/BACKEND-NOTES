@@ -11,4 +11,4 @@
  8  pip freeze
  9  pip freeze > requirements.txt
  10  django-admin startproject main .
- 11  python manage.py runser
+ 11  python manage.py runserver
