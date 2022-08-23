@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'fscohort',
+    'relations',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +81,20 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+# PostreSQL
+# $ pip install psycopg2 # alternative -> $ pip install psycopg2-binary
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djangotest', # database_name
+        'USER': 'postgres', # login_user_name
+        'PASSWORD': '1234', # login_user_pass (setted on install)
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
+'''
 
 
 # Password validation
@@ -116,6 +132,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
