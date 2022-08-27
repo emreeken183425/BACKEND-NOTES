@@ -1,0 +1,17 @@
+{% extends "student/base.html" %}
+
+{% block container %}
+
+<h1>Student List </h1>
+{% comment %} {{student}} {% endcomment %}
+<ul>
+    {% for i in student  %}
+    
+       <li>{{i.number}} {{i.first_name}} {{i.last_name}} </li>
+
+    {% endfor %}
+
+</ul>
+
+
+{% endblock container %}
