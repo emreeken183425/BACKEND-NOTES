@@ -10,8 +10,8 @@
  7  pip list
  8  pip freeze
  9  pip freeze > requirements.txt
- 10  django-admin startproject main .
- 11  python manage.py runserver
+ 10 django-admin startproject main .
+ 11 python manage.py runserver
  12 python manage.py startapp student(yeni app için )
  
  pip install python-decouple >> import et
