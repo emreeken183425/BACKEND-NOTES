@@ -16,11 +16,7 @@ from .models import Student,Path
 #         instance.number = validated_data.get('number', instance.number)
 #         instance.save()
 #         return instance
-#2. yöntem
-class PathSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Path
-        fields = ["id", "path_name"]
+
     
 class StudentSerializer(serializers.ModelSerializer):
     # full_name=serializers.SerializerMethodField()
@@ -37,3 +33,14 @@ class StudentSerializer(serializers.ModelSerializer):
         fields = ["id","path_id","path","first_name", "last_name", "number"]
         # fields = '__all__'
         # exclude = ['number']
+        #2. yöntem
+class PathSerializer(serializers.ModelSerializer):
+    Students=StudentSerializer(many=True)
+    
+    class Meta:
+        model = Path
+        fields = ["id", "path_name","students"]
+        
+        
+        
+        

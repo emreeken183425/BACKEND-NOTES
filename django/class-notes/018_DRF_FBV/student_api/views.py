@@ -31,6 +31,67 @@ def student_api(request):
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET'])  
+def student_list(request):
+    students=Student.objects.filter(path=1)
+    serializer=StudentSerializer(students,many=True)
+    print(serializer.data)
+    return Response(serializer.data)    
+
+@api_view(['POST'])
+def student_create(request):
+    print(request.data)
+    serializer = StudentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        data = {
+            "message": f"Student {serializer.validated_data.get('first_name')} saved sucsefully"
+        }
+        return Response(data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors)
+@api_view(['GET'])
+def student_detail(request, pk):
+    # try:
+    #     student = Student.objects.get(pk=pk)
+    # except Objdkdlşdş:
+    #     raise HTTP404
+    student = get_object_or_404(Student, pk=pk)
+    serializer = StudentSerializer(student)
+    return Response(serializer.data, status=status.HTTP_200_OK)
+        
+@api_view(['PUT'])
+def student_update(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    serializer = StudentSerializer(student, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        data = {
+            "message": f"Student {student.last_name} updated successfully"
+        }
+        return Response(data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['PATCH'])
+def student_update_partial(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    serializer = StudentSerializer(student, data=request.data, partial=True)
+    if serializer.is_valid():
+        serializer.save()
+        data = {
+            "message": f"Student {student.last_name} updated successfully"
+        }
+        return Response(data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def student_delete(request, pk):
+    student = get_object_or_404(Student, pk=pk)
+    student.delete()
+    data = {
+        "message": f"Student {student.last_name} deleted successfully..."
+    }
+    return Response(data, status=status.HTTP_200_OK)
+
 @api_view(['GET', 'PUT', 'DELETE', 'PATCH'])
 def student_api_get_update_delete(request, pk):
     student = get_object_or_404(Student, pk=pk)
@@ -81,3 +142,10 @@ def path_api(request):
                 "message": f"Path saved successfully!"}
             return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+    
+        
+    
+    
+    
