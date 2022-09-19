@@ -1,0 +1,20 @@
+{% extends "tekrar/base.html" %}
+
+{% block container %}
+
+<h2>member list page</h2>
+
+<ul>
+    {% for member in members %}
+    <li>
+        {{member.title }}-{{member.topic}}-{{member.comment}}
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock container %}
+
+
+
+

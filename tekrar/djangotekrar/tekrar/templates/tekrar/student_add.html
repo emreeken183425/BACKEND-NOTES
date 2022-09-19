@@ -1,0 +1,17 @@
+{% extends "tekrar/base.html" %}
+
+{% block container %}
+
+
+<h2> add student</h2>
+<form method="POST" >
+
+{% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="add">
+
+</form>
+
+{% endblock container %}
+
+
