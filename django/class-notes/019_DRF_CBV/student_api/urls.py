@@ -1,7 +1,9 @@
 from django.urls import path
 from .views import (
     home,
-    StudentList,StudentDetail,
+    StudentList,
+    StudentDetail,
+    StudentListCreate,
     # student_api,
     # student_api_get_update_delete, path_api,
     # student_list,
@@ -16,6 +18,7 @@ urlpatterns = [
     #! CBV URLS 👇
     path('student/', StudentList.as_view()), 
     path('student/<int:pk>/', StudentDetail.as_view()),
+    path('student/',StudentListCreate.as_view() )
 
     #! FBV URLS 👇
     # """ path('student/', student_api),
