@@ -38,7 +38,8 @@ SECRET_KEY = config('SECRET_KEY')
 8-python manage.py createsuperuser
 9-python manage.py runserver
 
-
+KISAYOLDAN ENV HAZIRLAMAK TERMİNALDEN 
+'''echo SECRET_KEY=yuliemkauiyemieü234952/4867(ŞİFRE İSTEDİĞİNİ YAZ) > .env'''
 
 Templates
 Variables: {{ variable }}

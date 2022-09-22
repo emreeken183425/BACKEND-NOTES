@@ -4,7 +4,7 @@ from faker import Faker
 def run():
     '''
         python manage.py shell
-        from .faker import run
+        from student_api.faker import run
         run()
         exit()
         # https://faker.readthedocs.io/en/master/
