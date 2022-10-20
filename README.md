@@ -61,7 +61,20 @@ terminalde
 git checkout main >>>>>ana brancha get
 git branch -d branchname >>>branchı sil
 
+DJANGO İLE REACT BİRLİKTE KULLANMAK İÇİN 
+# indir ekle 
+pip install django-cors-headers
 
+INSTALLED_APPS = [
+    ...,
+    "corsheaders",
+    ...,
+]
 
-
+MIDDLEWARE = [
+    ...,
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    ...,
+]
 
