@@ -63,6 +63,7 @@ git branch -d branchname >>>branchı sil
 
 DJANGO İLE REACT BİRLİKTE KULLANMAK İÇİN 
 # indir ekle 
+django ile react dosyalarının sağlıklı çalışması için şart
 pip install django-cors-headers
 
 INSTALLED_APPS = [
