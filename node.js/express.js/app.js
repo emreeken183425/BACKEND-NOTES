@@ -11,7 +11,8 @@ app.use(bodyParser.urlencoded({extended:false}))
 app.use(adminRoutes)
 app.use(userRoutes)
 
-
+app.set('title','My site');
+console.log(app.get('title'));
 
 
 app.use('/add-list',(req,res,next)=>{
