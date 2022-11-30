@@ -5,14 +5,45 @@ const bodyParser=require('body-parser')
 const adminRoutes=require('./routes/admin')  
 const userRoutes=require('./routes/user')
 
+const sequelize=require('./utility/database')
 
+// data base bağlantısı kontrol ettik
+sequelize
+   .authenticate()
+   .then(()=>{
+    console.log('başarıyla bağlandı');
+   }).catch(err=>{
+    console.log('başarısız',err);
+   })
+
+
+
+// tabloları database aktarmak için sequelize.sync();
+sequelize.sync()
+.then(result=>{
+    console.log(result);
+}).catch(err=>{
+    console.log(err);
+});
 
 app.use(bodyParser.urlencoded({extended:false}))  
 app.use(adminRoutes)
 app.use(userRoutes)
 
-app.set('title','My site');
-console.log(app.get('title'));
+/*
+  DATABASEDEN VERİ ALMA 
+  const connection=require('./utility/database') İMPORT ET
+connection.execute('SELECT name,price FROM product')
+.then((result)=>{
+    console.log(result[0]);
+}).catch((err)=>{
+    console.log(err);
+})
+
+*/
+
+
+
 
 
 app.use('/add-list',(req,res,next)=>{
