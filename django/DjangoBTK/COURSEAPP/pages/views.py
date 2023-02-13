@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
-# Create your views here.
-def home(req):
-    return HttpResponse('anasayfa')
-def iletisim(req):
-    return HttpResponse('iletişim listesi')
 
-def hakkimizda(req):
-    return HttpResponse('hakkımızda listesi')    
+
+def index(request):
+    return render(request,'pages/index.html')
+
+def about(request):
+    return render(request,'pages/about.html')  
+
+def contact(request):
+    return render(request,'pages/contact.html')
+
+  

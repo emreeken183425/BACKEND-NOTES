@@ -11,7 +11,8 @@ data={
     
 
 }
-
+def index(request):
+    return render(request,'courses/index.html')
 def kurslar(req):
     list_items=""
     category_list=list(data.keys())
