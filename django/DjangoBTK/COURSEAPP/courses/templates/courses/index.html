@@ -5,7 +5,18 @@ kurslar sayfası
 {% endblock page_title %}
 {% block content %}
 
-<h1>Kurslar</h1>
+<<div class="container mt-3 ">
+    <div class="row">
+        <div class="col-3 bg-warning ">
+             <!--MENÜ-->
+             {% include 'courses/partials/_categories.html ' %}
+        </div>
+        <div class="col-9 bg-success ">
+ <!--CONTENT-->
+
+        </div>
+    </div>
+</div>
 
 {% endblock  %}
 
