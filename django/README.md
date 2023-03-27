@@ -39,6 +39,34 @@ SECRET_KEY = config('SECRET_KEY')
 9-python manage.py runserver
 
 
+ templates ve static dosyaları ayarlamak için main deki 
+ setting.py git  ve bunu yapıştır mainle aynı dizinde templates klasörü oluştur 
+
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [ os.path.join(BASE_DIR,"templates") ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+
+
+STATİC DOSYALARI İÇİN
+ MAİNDE  STATIC_URL = "static/" ALTINA AŞAĞIDAKİNİ YAĞIŞTIR MAİNLE AYN DİZİNDE STATİC KLASÖRÜ AÇ
+
+ STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,"static")
+]
+
+
 REACT İLE DJANGO ARASINDA BAĞLANTI KURMAK İÇİN 
 
 
@@ -73,14 +101,18 @@ f4=Student.objects.filter(last_name__endswith="E")
 
 ```
 # resim yükleme için aşağıdaki adımlar
+
 modelse avatar=models.ImageField('resim',blank=True,null=True,upload_to="meida/")# 
 pip install pillow resim yüklemek için indirmemiz gereken paket
+
 MEDIA_URL='media/' setting.py a da bunu yazman gerekli main settings.py
 sonra main urls.py a gidip 
 from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns +=static(settings.MEDIA_URL,document_roor=settings.MEDIA_ROOT) bunu yaz
-
+ yada settings py da 
+ MEDIA_URL="/media/"
+MEDIA_ROOR=os.path.join(BASE_DIR,"media") bunları yaz mainle aynı dizinde media klasörü aç
 
 **** DATABSE İLE BAĞLANMA NASIL*****
 # Database
